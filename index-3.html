@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>The Heredia Guide · Heredia Suites Catedral</title>
+<meta name="description" content="Everything you need for a perfect stay in Málaga.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* =====================================================================
+   THE HEREDIA GUIDE — shared stylesheet
+   Used by every building (catedral, centro, ...). Do not duplicate this
+   file per building — only config.js changes between buildings.
+===================================================================== */
+:root{
+  --cream:#fbf3e3; --paper:#fffdf8; --sand:#f3e9d3; --line:#e6d7b8;
+  --gold:#a97c3e; --gold-deep:#8a6430; --gold-soft:#c9a463;
+  --ink:#3a2c1e; --muted:#8c7a5e;
+  --safe-b: env(safe-area-inset-bottom, 0px);
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+body{font-family:Jost,-apple-system,BlinkMacSystemFont,sans-serif;font-weight:300;color:var(--ink);
+  background:var(--cream);line-height:1.55;padding-bottom:calc(78px + var(--safe-b))}
+h1,h2,h3{font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;color:var(--ink);line-height:1.15}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer}
+img{max-width:100%;display:block}
+.wrap{max-width:560px;margin:0 auto;padding:0 20px}
+.eyebrow{font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);font-weight:500}
+
+/* ---- Panels: only one visible at a time (tab-style, not one long scroll) ---- */
+.panel{display:none;padding:38px 0 6px}
+.panel.active{display:block}
+@media (prefers-reduced-motion: no-preference){
+  .panel.active{animation:panelIn .28s ease}
+  @keyframes panelIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+}
+.sec-head{margin-bottom:18px}
+.sec-head h2{font-size:25px;margin-top:5px}
+.sec-head p.sub{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;color:var(--muted);
+  font-size:15px;margin-top:6px}
+.rule{width:32px;height:1px;background:var(--gold);margin-top:10px}
+
+/* Accessibility: visible focus, skip link */
+:focus-visible{outline:2px solid var(--gold-deep);outline-offset:2px}
+.skip-link{position:absolute;left:-999px;top:0;background:var(--ink);color:#fff;padding:10px 16px;z-index:100}
+.skip-link:focus{left:12px;top:12px}
+
+/* ---- Top bar ---- */
+header.top{position:sticky;top:0;z-index:30;background:rgba(251,243,227,.94);
+  backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.top-in{max-width:560px;margin:0 auto;padding:11px 20px;display:flex;align-items:center;justify-content:space-between}
+.brand-block{line-height:1.1}
+.brand{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:600}
+.brand em{font-style:italic;color:var(--gold)}
+.brand-sub{font-size:10px;letter-spacing:1.2px;text-transform:uppercase;color:var(--muted)}
+.lang-toggle{display:flex;border:1px solid var(--line);border-radius:20px;overflow:hidden;flex-shrink:0}
+.lang-toggle button{background:none;border:none;padding:7px 13px;font-size:11.5px;letter-spacing:1px;color:var(--muted);min-width:38px}
+.lang-toggle button[aria-pressed="true"]{background:var(--gold);color:#fff}
+
+/* ---- Hero ---- */
+.hero{padding:28px 0 8px;text-align:center}
+.hero h1{font-size:clamp(26px,7vw,32px)}
+.hero p.tag{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-size:16.5px;color:var(--muted);margin-top:8px}
+.hero-actions{display:flex;gap:10px;justify-content:center;margin-top:20px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:11px 20px;font-size:12.5px;letter-spacing:1.1px;
+  text-transform:uppercase;border-radius:24px;font-weight:500;border:1px solid transparent}
+.btn-gold{background:var(--gold);color:#fff}
+.btn-line{border-color:var(--gold-soft);color:var(--gold-deep);background:var(--paper)}
+
+/* ---- Cards ---- */
+.card{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:17px 18px}
+.card + .card{margin-top:12px}
+.card h3{font-size:18px;display:flex;align-items:center;gap:8px}
+.card .ico{font-size:18px}
+.card p{font-size:14px;color:#5a4c39;margin-top:6px}
+.card .row{display:flex;justify-content:space-between;gap:14px;align-items:baseline;margin-top:4px}
+.card .row .val{font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:600;color:var(--ink)}
+.checklist{margin-top:10px;display:flex;flex-direction:column;gap:7px}
+.checklist .it{display:flex;gap:9px;align-items:baseline;font-size:14px;color:#5a4c39}
+.checklist .it::before{content:"✓";color:var(--gold);font-weight:600}
+.card .foot{display:flex;gap:8px;margin-top:13px;flex-wrap:wrap}
+.pill-btn{display:inline-flex;align-items:center;gap:6px;font-size:11.5px;letter-spacing:.5px;
+  text-transform:uppercase;border:1px solid var(--line);border-radius:18px;padding:8px 14px;
+  color:var(--gold-deep);background:var(--sand)}
+.pill-btn.solid{background:var(--gold);color:#fff;border-color:var(--gold)}
+.pill-btn:active{transform:scale(.97)}
+
+/* ---- POI cards (places, food, transport...) ---- */
+.poi-card{display:flex;justify-content:space-between;gap:12px;align-items:center}
+.poi-card img{width:64px;height:64px;border-radius:8px;object-fit:cover;flex-shrink:0}
+.poi-card .info h3{font-size:16.5px}
+.poi-card .meta{font-size:12px;color:var(--muted);margin-top:3px;display:flex;gap:7px;flex-wrap:wrap}
+.poi-card .go .pill-btn{white-space:nowrap}
+
+/* ---- Nora's picks: bigger personality ---- */
+.nora-card{background:var(--paper);border:1px solid var(--gold-soft);border-left:3px solid var(--gold);
+  border-radius:10px;padding:18px 20px}
+.nora-card + .nora-card{margin-top:12px}
+.nora-card .kicker{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-size:13px;color:var(--gold-deep)}
+.nora-card h3{font-size:20px;margin-top:3px}
+.nora-card p{font-size:14.5px;color:#4c4030;margin-top:6px;font-style:italic;font-family:'Cormorant Garamond',Georgia,serif}
+.nora-card .meta{font-size:12px;color:var(--muted);margin-top:8px}
+.nora-card .foot{margin-top:12px}
+
+/* ---- Favourites: collapsible categories ---- */
+.fav-cat{border:1px solid var(--line);border-radius:10px;background:var(--paper);margin-bottom:10px;overflow:hidden}
+.fav-cat summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;
+  padding:14px 18px;font-family:'Cormorant Garamond',Georgia,serif;font-size:19px;font-weight:600}
+.fav-cat summary::-webkit-details-marker{display:none}
+.fav-cat summary .plus{color:var(--gold);font-size:20px;font-family:Jost;font-weight:400;transition:transform .25s}
+.fav-cat[open] summary .plus{transform:rotate(45deg)}
+.fav-cat .fav-items{padding:0 18px 16px;display:flex;flex-direction:column;gap:10px}
+.fav-item{display:flex;justify-content:space-between;gap:12px;align-items:baseline;padding-top:10px;border-top:1px solid var(--sand)}
+.fav-item:first-child{border-top:none;padding-top:0}
+.fav-item .name{font-size:14.5px;font-weight:500}
+.fav-item .desc{font-size:12.5px;color:var(--muted);margin-top:2px}
+.fav-item .meta{font-size:11px;color:var(--muted);margin-top:2px}
+.fav-item .go{flex-shrink:0}
+
+/* ---- Bottom dock nav ---- */
+.dock-wrap{position:fixed;left:0;right:0;bottom:0;z-index:40;display:flex;justify-content:center;
+  padding:10px 12px calc(10px + var(--safe-b))}
+.dock{display:flex;gap:2px;background:var(--ink);border-radius:26px;padding:6px;
+  box-shadow:0 10px 30px rgba(58,44,30,.35);max-width:560px;width:100%}
+.dock a{flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;padding:8px 4px;
+  border-radius:20px;color:#cbb98e;font-size:10.5px;letter-spacing:.3px;text-transform:uppercase}
+.dock a .di{font-size:17px}
+.dock a[aria-current="true"]{background:var(--gold);color:#fff}
+
+/* ---- Emergency ---- */
+.emg-band{background:var(--ink);color:var(--cream);border-radius:12px;padding:20px}
+.emg-band .eyebrow{color:var(--gold-soft)}
+.emg-band h2{color:#fff;font-size:21px;margin-top:6px}
+.emg-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.emg-item{background:rgba(251,243,227,.06);border:1px solid rgba(251,243,227,.15);border-radius:8px;padding:11px}
+.emg-item .k{font-size:10.5px;letter-spacing:1px;text-transform:uppercase;color:#cbb98e}
+.emg-item .v{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;margin-top:2px}
+.emg-item .v a{color:#fff}
+.emg-band .note{font-size:12.5px;color:#d9cdb0;margin-top:12px;line-height:1.6}
+
+/* ---- Review / closing band ---- */
+.review-band{text-align:center;padding:30px 0 6px}
+.review-band .stars{color:var(--gold);font-size:20px;letter-spacing:4px}
+.review-band h2{margin-top:10px;font-size:23px}
+.review-band p{font-size:13.5px;color:var(--muted);margin-top:6px}
+.review-actions{display:flex;gap:10px;justify-content:center;margin-top:16px;flex-wrap:wrap}
+
+footer.pg{text-align:center;padding:28px 0 18px;font-size:11.5px;color:var(--muted);letter-spacing:.4px}
+
+.empty-note{font-size:12px;color:var(--muted);font-style:italic;padding:8px 2px}
+
+@media (prefers-reduced-motion: no-preference){
+  .reveal{opacity:0;transform:translateY(8px);transition:opacity .45s ease,transform .45s ease}
+  .reveal.on{opacity:1;transform:none}
+}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+}
+::selection{background:var(--gold-soft);color:#fff}
+
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="top">
+  <div class="top-in">
+    <div class="brand-block">
+      <div class="brand">The Heredia <em>Guide</em></div>
+      <div class="brand-sub" data-i18n="brand_sub">Guest Guide</div>
+    </div>
+    <div class="lang-toggle" role="group" aria-label="Language / Idioma">
+      <button data-lang="en" aria-pressed="true">EN</button>
+      <button data-lang="es" aria-pressed="false">ES</button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<div class="hero wrap">
+  <h1 data-cfg="building.name">Heredia Suites Catedral</h1>
+  <p class="tag" id="welcomeText"></p>
+  <div class="hero-actions">
+    <a class="btn btn-gold" data-wa href="#"><span>💬</span><span data-i18n="whatsapp_us">WhatsApp us</span></a>
+    <a class="btn btn-line" href="#util" data-panel="util" data-i18n="see_useful">Useful information</a>
+  </div>
+</div>
+
+<!-- ============ ÚTIL ============ -->
+<section class="panel active" id="util" data-panel="util">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow" data-i18n="e_util">Everything practical, in one place</div>
+      <h2 data-i18n="h_util">Useful Information</h2>
+      <div class="rule"></div>
+    </div>
+
+    <div class="card">
+      <h3>📍 <span data-i18n="address_title">Address</span></h3>
+      <p data-cfg="building.name">Heredia Suites Catedral</p>
+      <p id="addressLines"></p>
+      <div class="foot">
+        <a class="pill-btn" data-maps="building" target="_blank" rel="noopener noreferrer">🗺️ <span data-i18n="open_maps">Maps</span></a>
+        <button class="pill-btn" id="copyAddressBtn">📋 <span data-i18n="copy_address">Copy address</span></button>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="row"><h3 style="font-size:16px" data-i18n="checkin_title">Check-in</h3>
+        <span class="val"><span data-i18n="checkin_from">From</span> <span data-cfg="checkin">15:00</span></span></div>
+      <div class="row" style="margin-top:10px"><h3 style="font-size:16px" data-i18n="checkout_title">Check-out</h3>
+        <span class="val"><span data-i18n="checkout_before">Before</span> <span data-cfg="checkout">12:00</span></span></div>
+      <div class="checklist" style="margin-top:14px">
+        <div class="it" data-i18n="co_1">Switch off the air conditioning</div>
+        <div class="it" data-i18n="co_2">Turn off all lights</div>
+        <div class="it" data-i18n="co_3">Close every door and window</div>
+        <div class="it" data-i18n="co_4">Double-check you have all your belongings</div>
+        <div class="it" data-i18n="co_5">Leave the keys where indicated</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>❄️ <span data-i18n="ac_title">Air Conditioning</span></h3>
+      <div class="checklist">
+        <div class="it" data-i18n="ac_1">Keep doors and windows closed while it's running.</div>
+        <div class="it" data-i18n="ac_2">Please switch it off when you go out.</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>🗑️ <span data-i18n="trash_title">Waste Disposal</span></h3>
+      <p><span data-i18n="trash_text">Bins are located on</span> <b data-cfg="trash.street"></b>, <span data-cfg="trash.near"></span>.</p>
+      <div class="row"><span data-i18n="trash_hours">Recommended time</span><span class="val" data-cfg="trash.hours"></span></div>
+      <div class="foot"><a class="pill-btn" data-maps="trash" target="_blank" rel="noopener noreferrer">🗺️ <span data-i18n="open_maps">Maps</span></a></div>
+    </div>
+
+    <div class="card">
+      <h3>🅿️ <span data-i18n="parking_title">Parking</span></h3>
+      <p data-cfg="parking.name"></p>
+      <p data-cfg="parking.note"></p>
+      <div class="foot"><a class="pill-btn" data-maps="parking" target="_blank" rel="noopener noreferrer">🗺️ <span data-i18n="open_maps">Maps</span></a></div>
+    </div>
+
+    <div class="card">
+      <h3>🛒 <span data-i18n="market_title">Supermarket</span></h3>
+      <p data-cfg="market.name"></p>
+      <p data-cfg="market.note"></p>
+      <div class="foot"><a class="pill-btn" data-maps="market" target="_blank" rel="noopener noreferrer">🗺️ <span data-i18n="open_maps">Maps</span></a></div>
+    </div>
+
+    <div class="card">
+      <h3>💊 <span data-i18n="pharmacy_title">Pharmacy</span></h3>
+      <p data-cfg="pharmacy.name"></p>
+      <p data-cfg="pharmacy.note"></p>
+      <div class="foot">
+        <a class="pill-btn" data-maps="pharmacy" target="_blank" rel="noopener noreferrer">🗺️ <span data-i18n="open_maps">Maps</span></a>
+        <a class="pill-btn" id="guardiaBtn" target="_blank" rel="noopener noreferrer">💊 <span data-i18n="pharmacy_guardia">On-duty pharmacy</span></a>
+      </div>
+    </div>
+
+    <div class="card" id="luggageCard">
+      <h3>📦 <span data-i18n="luggage_title">Luggage Storage</span></h3>
+      <p data-cfg="luggage.name"></p>
+      <div class="row"><span data-i18n="contact_hours">Hours</span><span class="val" data-cfg="luggage.hours"></span></div>
+      <p style="margin-top:8px" data-cfg="luggage.note"></p>
+      <div class="foot">
+        <a class="pill-btn" data-maps="luggage" target="_blank" rel="noopener noreferrer">🗺️ <span data-i18n="open_maps">Maps</span></a>
+        <a class="pill-btn" id="luggageTelBtn" href="#">📞 <span data-i18n="call">Call</span></a>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>💬 <span data-i18n="contact_title">Contact</span></h3>
+      <p>Heredia Suites</p>
+      <div class="row"><span data-i18n="contact_hours">Attention hours</span><span class="val" data-cfg="contact.hours"></span></div>
+      <p style="margin-top:10px" data-i18n="contact_afterhours">If you need help outside these hours for an urgent issue with the apartment, message us anyway — we'll do our best to help as soon as possible.</p>
+      <div class="foot">
+        <a class="pill-btn solid" data-wa href="#">💬 WhatsApp</a>
+        <a class="pill-btn" data-tel href="#">📞 <span data-i18n="call">Call</span></a>
+        <a class="pill-btn" data-mail href="#">✉️ <span data-i18n="email">Email</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RECOMENDACIONES (Nora's picks + Our Favourites) ============ -->
+<section class="panel" id="reco" data-panel="reco">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow" data-i18n="e_nora">My favourite spots to enjoy Málaga like a local</div>
+      <h2 data-i18n="h_nora">Recommended by Nora</h2>
+      <div class="rule"></div>
+    </div>
+    <div id="noraList"></div>
+
+    <div class="sec-head" style="margin-top:32px">
+      <div class="eyebrow" data-i18n="e_comer">A curated selection, not a directory</div>
+      <h2 data-i18n="h_comer">Our Favourites</h2>
+      <div class="rule"></div>
+    </div>
+    <div id="favList"></div>
+  </div>
+</section>
+
+<!-- ============ MÁLAGA (explore + beaches + shopping + transport) ============ -->
+<section class="panel" id="malaga" data-panel="malaga">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow" data-i18n="e_malaga">Sorted by distance from your door</div>
+      <h2 data-i18n="h_malaga">Explore Málaga</h2>
+      <div class="rule"></div>
+    </div>
+    <div id="exploreList"></div>
+
+    <div class="sec-head" style="margin-top:32px">
+      <h2 data-i18n="h_beaches" style="font-size:21px">Beaches</h2>
+    </div>
+    <div id="beachList"></div>
+
+    <div class="sec-head" style="margin-top:32px">
+      <h2 data-i18n="h_shopping" style="font-size:21px">Shopping</h2>
+    </div>
+    <div id="shoppingList"></div>
+
+    <div class="sec-head" style="margin-top:32px">
+      <h2 data-i18n="h_transport" style="font-size:21px">Getting Around</h2>
+    </div>
+    <div id="transportList"></div>
+    <div class="card" style="margin-top:12px">
+      <h3>🚕 <span data-i18n="t_taxi">Taxi</span></h3>
+      <p data-cfg="transport.taxi.note"></p>
+      <div class="foot"><a class="pill-btn solid" id="taxiBtn"><span data-i18n="call">Call</span></a></div>
+    </div>
+    <div class="card" style="margin-top:12px">
+      <h3>🚗 Uber / Cabify</h3>
+      <div class="foot">
+        <a class="pill-btn" id="uberBtn" target="_blank" rel="noopener noreferrer">Uber</a>
+        <a class="pill-btn" id="cabifyBtn" target="_blank" rel="noopener noreferrer">Cabify</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ AYUDA (help + emergency + review) ============ -->
+<section class="panel" id="ayuda" data-panel="ayuda">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow" data-i18n="e_help">We're here</div>
+      <h2 data-i18n="h_help">Need Help?</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="card">
+      <h3>💬 Heredia Suites</h3>
+      <p data-i18n="help_text">Anything at all — just message us.</p>
+      <div class="foot">
+        <a class="pill-btn solid" data-wa href="#">💬 WhatsApp</a>
+        <a class="pill-btn" data-tel href="#">📞 <span data-i18n="call">Call</span></a>
+        <a class="pill-btn" data-mail href="#">✉️ <span data-i18n="email">Email</span></a>
+      </div>
+    </div>
+
+    <div class="emg-band" style="margin-top:16px">
+      <div class="eyebrow" data-i18n="e_emg">Just in case</div>
+      <h2 data-i18n="h_emg">Emergency</h2>
+      <div class="emg-grid">
+        <div class="emg-item"><div class="k" data-i18n="emg_all">Emergencies</div><div class="v"><a href="tel:112">112</a></div></div>
+        <div class="emg-item"><div class="k" data-i18n="emg_national">National Police</div><div class="v"><a href="tel:091">091</a></div></div>
+        <div class="emg-item"><div class="k" data-i18n="emg_local">Local Police</div><div class="v"><a href="tel:092">092</a></div></div>
+        <div class="emg-item"><div class="k" data-i18n="emg_fire">Fire Brigade</div><div class="v"><a href="tel:080">080</a></div></div>
+      </div>
+      <p class="note"><b data-i18n="emg_hospital">Nearest hospital</b>: Hospital Regional Universitario de Málaga.</p>
+      <p class="note" data-i18n="emg_note">For any urgent issue with the apartment, please contact Heredia Suites as well.</p>
+    </div>
+
+    <div class="review-band" id="reviewBand">
+      <div class="stars">★★★★★</div>
+      <h2 data-i18n="review_title">We hope you enjoyed your stay</h2>
+      <p data-i18n="review_text">If everything went well, it would mean a lot if you took a minute to leave us a review.</p>
+      <div class="review-actions">
+        <a class="btn btn-gold" data-review="booking" target="_blank" href="#" data-i18n="review_booking">Review on Booking</a>
+        <a class="btn btn-line" data-review="google" target="_blank" href="#" data-i18n="review_google">Review on Google</a>
+        <a class="btn btn-line" data-review="rebook" target="_blank" href="#" data-i18n="review_rebook">Book with us again</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="pg wrap">
+  Heredia Suites Catedral · Málaga · <span data-i18n="footer_made">made with care for our guests</span>
+</footer>
+
+<div class="dock-wrap">
+  <nav class="dock" id="dock" aria-label="Section navigation">
+    <a href="#util" data-panel="util" aria-current="true"><span class="di">🏠</span><span data-i18n="nav_util">Useful</span></a>
+    <a href="#reco" data-panel="reco"><span class="di">⭐</span><span data-i18n="nav_reco">Recommendations</span></a>
+    <a href="#malaga" data-panel="malaga"><span class="di">🏛️</span><span data-i18n="nav_malaga">Málaga</span></a>
+    <a href="#ayuda" data-panel="ayuda"><span class="di">☎️</span><span data-i18n="nav_ayuda">Help</span></a>
+  </nav>
+</div>
+
+
+
+<script>
+/* =====================================================================
+   THE HEREDIA GUIDE — shared UI dictionary (ES / EN)
+   This file holds interface text only (labels, buttons, headings).
+   Business content (place names, descriptions) lives in each
+   building's config.js, already written in both languages there.
+   Shared between all buildings — do not duplicate per building.
+===================================================================== */
+var I18N = {
+  brand_sub:            { en:"Guest Guide",                     es:"Guía del huésped" },
+  whatsapp_us:           { en:"WhatsApp us",                     es:"Escríbenos" },
+  see_useful:            { en:"Useful information",              es:"Información útil" },
+  discover_malaga:       { en:"Discover Málaga",                 es:"Descubre Málaga" },
+
+  // Nav (4 tabs: Nora's picks and Favourites now live together under "Recommendations")
+  nav_util:              { en:"Useful",  es:"Útil" },
+  nav_reco:              { en:"Recommendations", es:"Recomendaciones" },
+  nav_malaga:            { en:"Málaga", es:"Málaga" },
+  nav_ayuda:             { en:"Help",    es:"Ayuda" },
+
+  h_util:                { en:"Useful Information",              es:"Información Útil" },
+  e_util:                { en:"Everything practical, in one place", es:"Todo lo práctico, en un solo lugar" },
+
+  address_title:         { en:"Address",                         es:"Dirección" },
+  copy_address:          { en:"Copy address",                    es:"Copiar dirección" },
+  copied:                { en:"✓ Copied",                        es:"✓ Copiado" },
+  open_maps:             { en:"Maps",                             es:"Mapa" },
+  call:                  { en:"Call",                             es:"Llamar" },
+  email:                 { en:"Email",                            es:"Correo" },
+
+  checkin_title:         { en:"Check-in",                        es:"Check-in" },
+  checkin_from:          { en:"From",                             es:"A partir de las" },
+  checkout_title:        { en:"Check-out",                       es:"Check-out" },
+  checkout_before:       { en:"Before",                           es:"Antes de las" },
+  co_1:                  { en:"Switch off the air conditioning",  es:"Apaga el aire acondicionado" },
+  co_2:                  { en:"Turn off all lights",               es:"Apaga las luces" },
+  co_3:                  { en:"Close every door and window",      es:"Cierra puertas y ventanas" },
+  co_4:                  { en:"Double-check you have all your belongings", es:"Comprueba que has recogido todas tus pertenencias" },
+  co_5:                  { en:"Leave the keys where indicated",   es:"Deja las llaves en el lugar indicado" },
+
+  ac_title:              { en:"Air Conditioning",                 es:"Aire Acondicionado" },
+  ac_1:                  { en:"Keep doors and windows closed while it's running.", es:"Mantén puertas y ventanas cerradas mientras esté encendido." },
+  ac_2:                  { en:"Please switch it off when you go out.", es:"Apágalo cuando salgas del apartamento." },
+
+  trash_title:           { en:"Waste Disposal",                   es:"Basura" },
+  trash_text:            { en:"Bins are located on",              es:"Los contenedores se encuentran en" },
+  trash_hours:           { en:"Recommended time",                 es:"Horario recomendado" },
+
+  parking_title:         { en:"Parking",                          es:"Aparcamiento" },
+  market_title:          { en:"Supermarket",                      es:"Supermercado" },
+  pharmacy_title:        { en:"Pharmacy",                         es:"Farmacia" },
+  pharmacy_guardia:      { en:"On-duty pharmacy",                 es:"Farmacia de guardia" },
+  luggage_title:         { en:"Luggage Storage",                  es:"Consigna de Equipaje" },
+  luggage_text:          { en:"Need to store your bags before check-in or after check-out? We recommend a nearby luggage storage service.", es:"Si necesitas guardar tus maletas antes del check-in o después del check-out, recomendamos un servicio de consigna cercano." },
+  luggage_pending:       { en:"We're finalising the details of this service — ask us and we'll point you to the best option nearby.", es:"Estamos confirmando los detalles de este servicio — pregúntanos y te indicamos la mejor opción cercana." },
+
+  contact_title:         { en:"Contact",                          es:"Contacto" },
+  contact_hours:         { en:"Attention hours",                  es:"Horario de atención" },
+  contact_afterhours:    { en:"If you need help outside these hours for an urgent issue with the apartment, message us anyway — we'll do our best to help as soon as possible.",
+                            es:"Si necesitas ayuda fuera de este horario por una incidencia urgente relacionada con el apartamento, escríbenos igualmente e intentaremos ayudarte lo antes posible." },
+
+  h_nora:                { en:"Recommended by Nora",              es:"Recomendado por Nora" },
+  e_nora:                { en:"My favourite spots to enjoy Málaga like a local", es:"Mis lugares favoritos para disfrutar Málaga como alguien de aquí" },
+
+  h_comer:               { en:"Our Favourites",                   es:"Nuestros Favoritos" },
+  e_comer:               { en:"A curated selection, not a directory", es:"No es un directorio, es una selección cuidada" },
+
+  h_malaga:              { en:"Explore Málaga",                   es:"Descubre Málaga" },
+  e_malaga:              { en:"Sorted by distance from your door", es:"Ordenado por distancia desde tu puerta" },
+  h_beaches:             { en:"Beaches",                          es:"Playas" },
+  h_shopping:            { en:"Shopping",                         es:"Compras" },
+  h_transport:           { en:"Getting Around",                   es:"Transporte" },
+  t_airport:             { en:"Airport",                          es:"Aeropuerto" },
+  t_train:               { en:"Train Station",                   es:"Estación de Tren" },
+  t_taxi:                { en:"Taxi",                             es:"Taxi" },
+
+  h_help:                { en:"Need Help?",                       es:"¿Necesitas Ayuda?" },
+  e_help:                { en:"We're here",                       es:"Estamos aquí" },
+  help_text:             { en:"Anything at all — just message us.", es:"Cualquier cosa — solo escríbenos." },
+  h_emg:                 { en:"Emergency",                         es:"Emergencias" },
+  e_emg:                 { en:"Just in case",                     es:"Por si acaso" },
+  emg_all:               { en:"Emergencies",                       es:"Emergencias" },
+  emg_national:          { en:"National Police",                  es:"Policía Nacional" },
+  emg_local:             { en:"Local Police",                     es:"Policía Local" },
+  emg_fire:              { en:"Fire Brigade",                     es:"Bomberos" },
+  emg_hospital:          { en:"Nearest hospital",                 es:"Hospital más cercano" },
+  emg_note:              { en:"For any urgent issue with the apartment, please contact Heredia Suites as well.",
+                            es:"Para cualquier incidencia urgente relacionada con el apartamento, contacta también con Heredia Suites." },
+
+  review_title:          { en:"We hope you enjoyed your stay",    es:"Esperamos que hayas disfrutado tu estancia" },
+  review_text:           { en:"If everything went well, it would mean a lot if you took a minute to leave us a review.",
+                            es:"Si todo ha ido bien, nos ayudaría muchísimo que dedicaras un minuto a dejarnos una reseña." },
+  review_booking:        { en:"Review on Booking",                es:"Reseña en Booking" },
+  review_google:         { en:"Review on Google",                 es:"Reseña en Google" },
+  review_rebook:         { en:"Book with us again",                es:"Volver a reservar" },
+  footer_made:           { en:"made with care for our guests",    es:"hecho con cariño para nuestros huéspedes" },
+
+  walk_min:              { en:"min walk",                          es:"min andando" },
+  recommends:            { en:"Nora recommends",                  es:"Recomendado por Nora" },
+};
+
+</script>
+<script>
+/* =====================================================================
+   THE HEREDIA GUIDE — configuration for HEREDIA SUITES CATEDRAL
+   To create the Centro version: copy the /catedral folder, rename it
+   /centro, and edit only this file. Nothing else needs to change.
+
+   Fields marked PENDING must be completed before publishing — the
+   engine automatically hides anything left as "PENDING".
+===================================================================== */
+var CONFIG = {
+
+  building: {
+    id: "catedral",
+    name: "Heredia Suites Catedral",
+    addressLines: ["Calle Granada, 16", "29015 Málaga", "Centro Histórico"],
+    address: "Calle Granada, 16, 29015 Málaga",
+    lat: 36.7217256, lng: -4.4210037,
+    place_id: "ChIJXXlBKr73cg0RNTdEM9VV5nQ"
+  },
+
+  checkin: "15:00",
+  checkout: "12:00",
+
+  welcome: {
+    en: "Thank you for choosing us for your stay in Málaga. We've prepared this guide to help you discover the city and find useful information throughout your stay.",
+    es: "Gracias por elegirnos para tu estancia en Málaga. Hemos preparado esta guía para ayudarte a descubrir la ciudad y resolver cualquier duda durante tu estancia."
+  },
+
+  contact: {
+    phoneDisplay: "+34 614 70 05 26",
+    phoneDial: "+34614700526",
+    email: "nora@heredia21.com",
+    hours: "09:00–22:00",
+    whatsappMsg: {
+      en: "Hi, I'm staying at Heredia Suites Catedral and I need help with…",
+      es: "Hola, estoy alojado/a en Heredia Suites Catedral y necesito ayuda con…"
+    }
+  },
+
+  trash: {
+    street: "Calle Duque de la Victoria",
+    near: { en: "next to the OXO Museum", es: "junto al Museo OXO" },
+    hours: "21:00 – 00:30",
+    lat: 36.7213851, lng: -4.419564 // corner of C. Duque de la Victoria, next to OXO
+  },
+
+  parking: {
+    name: "Parking Alcazaba",
+    lat: 36.722459, lng: -4.416423,
+    place_id: "ChIJjTrKFQD3cg0R0vc135DnfR4",
+    note: { en: "Open 24 hours · ~7 min walk.", es: "Abierto 24 horas · ~7 min andando." }
+  },
+
+  market: {
+    name: "Carrefour Express · Calle Especería",
+    lat: 36.7208382, lng: -4.4231736,
+    place_id: "ChIJx-bUY1n3cg0RBFAtBt-Qk-o",
+    note: { en: "A few minutes' walk, open every day.", es: "A pocos minutos andando, abierto todos los días." }
+    // TODO (config-ready, not yet enabled): add Mercadona as an alternative once confirmed
+  },
+
+  pharmacy: {
+    name: "Farmacia Bustamante",
+    lat: 36.722819, lng: -4.417582,
+    place_id: "ChIJu972DcD3cg0RD1aZjDjaAOM",
+    note: { en: "Open every day, on Plaza de la Merced.", es: "Abierta todos los días, en la Plaza de la Merced." },
+    guardiaLink: "https://www.google.com/search?q=farmacia+de+guardia+malaga+hoy"
+  },
+
+  // Luggage storage — address confirmed by Nora (Calle Carretería is correct).
+  luggage: {
+    enabled: true,
+    name: "The Lockers Málaga",
+    lat: 36.7221968, lng: -4.4244186,
+    place_id: "ChIJSyOQpcH3cg0R_7xm8qiGzfw",
+    phone: "+34690291941",
+    hours: { en: "Open every day, 8:00 – 23:00", es: "Abierto todos los días, de 8:00 a 23:00" },
+    note: { en: "A few minutes' walk. Lockers of different sizes, card payment on site.",
+            es: "A pocos minutos andando. Taquillas de varios tamaños, pago con tarjeta en el propio local." }
+  },
+
+  // ================= RECOMMENDED BY NORA =================
+  // Personal, high-profile picks. Keep this list short (5–6 max).
+  nora: [
+    { kicker:{en:"My favourite breakfast", es:"Mi desayuno favorito"}, name:"Brunchit", ico:"🥐",
+      lat:36.7229788, lng:-4.423937, place_id:"ChIJb7BN3L33cg0RcNeZR_harK0" },
+    { kicker:{en:"A taste of Málaga", es:"Un restaurante malagueño"}, name:"El Tapeo de Cervantes", ico:"🍷",
+      lat:36.7239612, lng:-4.4193114, place_id:"ChIJKzfemL_3cg0RKTL3Ih44eLQ" },
+    { kicker:{en:"For sunset drinks", es:"Para tomar algo al atardecer"}, name:"Muelle Uno", ico:"🌇",
+      lat:36.7173576, lng:-4.4130168, place_id:"ChIJo3DE5-j3cg0RQ8BidXnADiI" },
+    { kicker:{en:"My favourite ice cream", es:"Mi helado favorito"}, name:"Casa Mira", ico:"🍦",
+      lat:36.719465, lng:-4.421489, place_id:"ChIJjWZZupX3cg0RC4chqyYyMog" },
+    // "A special corner" — do not publish until Nora gives the real place. Hidden while enabled:false.
+    { kicker:{en:"A special corner", es:"Un rincón especial"}, name:"—", ico:"🤍",
+      lat:null, lng:null, enabled:false }
+  ],
+
+  // ================= OUR FAVOURITES (by category, collapsible) =================
+  // One-line editorial notes only — no ratings, no invented hours/prices.
+  favourites: [
+    { cat:{en:"Breakfast", es:"Desayuno"}, ico:"🥐", items:[
+      { name:"Brunchit", lat:36.7229788, lng:-4.423937, place_id:"ChIJb7BN3L33cg0RcNeZR_harK0", rec:true,
+        note:{en:"Beautifully presented plates, always busy.", es:"Platos muy cuidados, siempre lleno."} },
+      { name:"Casa Aranda", lat:36.7187853, lng:-4.4234052, place_id:"ChIJCRDH1JX3cg0R0-Mv4DUFOGs",
+        note:{en:"Churros & hot chocolate since 1932.", es:"Churros y chocolate desde 1932."} },
+      { name:"La Canasta", lat:36.722181, lng:-4.417779, place_id:"ChIJbyM-Lqn3cg0RZr-X5CZvmHA",
+        note:{en:"Old-school bakery, good coffee.", es:"Panadería de toda la vida, buen café."} },
+    ]},
+    { cat:{en:"Coffee", es:"Café"}, ico:"☕", items:[
+      { name:"Next Level Specialty Coffee", lat:36.7177751, lng:-4.4241464, place_id:"ChIJ3w9CMlv3cg0RcAxVa6fnljY",
+        note:{en:"Serious coffee, small and popular.", es:"Café de especialidad, pequeño y muy solicitado."} },
+      { name:"Santa Coffee", lat:36.71685, lng:-4.4233293, place_id:"ChIJwZZTHZT3cg0RfvGpYbV2qnA",
+        note:{en:"Relaxed Mediterranean vibe, great juices.", es:"Ambiente mediterráneo relajado, buenos zumos."} },
+      { name:"Mia Coffee", lat:36.7164714, lng:-4.4228525, place_id:"ChIJpZpVBb73cg0R0chj8Gz6AOw",
+        note:{en:"Small, family-run, excellent beans.", es:"Pequeño, familiar, café excelente."} },
+    ]},
+    { cat:{en:"Tapas", es:"Tapas"}, ico:"🍷", items:[
+      { name:"El Tapeo de Cervantes", lat:36.7239612, lng:-4.4193114, place_id:"ChIJKzfemL_3cg0RKTL3Ih44eLQ", rec:true,
+        note:{en:"Book ahead — small, intimate, excellent.", es:"Reserva con antelación — pequeño e intenso, excelente."} },
+      { name:"Los Gatos", lat:36.7223443, lng:-4.4197876, place_id:"ChIJ687nxL_3cg0RIAf0vtkvQHs",
+        note:{en:"Lively, central, great mini burgers.", es:"Animado, céntrico, muy buenas mini burgers."} },
+      { name:"Uvedoble Taberna", lat:36.7206679, lng:-4.4174263, place_id:"ChIJb3U1tur3cg0RmrHODNDVXSI",
+        note:{en:"Creative tapas opposite the Roman Theatre.", es:"Tapas creativas frente al Teatro Romano."} },
+      { name:"Mesón Mariano", lat:36.7226273, lng:-4.4199214, place_id:"ChIJuf-uxb_3cg0RmAprNhlXWN0",
+        note:{en:"Local favourite, arrive early.", es:"Muy querido por los locales, llega pronto."} },
+      { name:"El Pimpi", lat:36.7219304, lng:-4.4181336, place_id:"ChIJ7a2TAMD3cg0RD8K-iOjCzIo",
+        note:{en:"An institution — historic bodega, always full.", es:"Una institución — bodega histórica, siempre lleno."} },
+    ]},
+    { cat:{en:"Málaga Cuisine", es:"Cocina Malagueña"}, ico:"🥘", items:[
+      { name:"El Pimpi", lat:36.7219304, lng:-4.4181336, place_id:"ChIJ7a2TAMD3cg0RD8K-iOjCzIo",
+        note:{en:"Traditional dishes, unbeatable atmosphere.", es:"Platos tradicionales, ambiente inigualable."} },
+      { name:"Mesón Mariano", lat:36.7226273, lng:-4.4199214, place_id:"ChIJuf-uxb_3cg0RmAprNhlXWN0",
+        note:{en:"Simple menu, everything done very well.", es:"Carta sencilla, todo muy bien hecho."} },
+      { name:"El Refectorium Catedral", lat:36.7196583, lng:-4.4189056, place_id:"ChIJG1tNO5X3cg0RaqNOGBM8CC8",
+        note:{en:"Classic dining with cathedral views.", es:"Cocina clásica con vistas a la catedral."} },
+    ]},
+    { cat:{en:"Seafood", es:"Pescado"}, ico:"🐟", items:[
+      { name:"Los Mellizos", lat:36.7188768, lng:-4.4210022, place_id:"ChIJY9gqVJT3cg0RYfj2c1GBmNk",
+        note:{en:"Fresh and generous, tucked in a side street.", es:"Fresco y abundante, en una callejuela escondida."} },
+      { name:"Taberna Casa Don Vicente", lat:36.718319, lng:-4.422298, place_id:"ChIJP-8nN5T3cg0RkiMeFC6hRDc",
+        note:{en:"Grilled cuttlefish, proper Andalusian flavour.", es:"Choco a la plancha, sabor andaluz de verdad."} },
+    ]},
+    { cat:{en:"Italian", es:"Italiano"}, ico:"🍝", items:[
+      { name:"Terra Mia", lat:36.7212029, lng:-4.4200978, place_id:"ChIJsVzQZJX3cg0Rpv6FwZsn2Mg",
+        note:{en:"Reliable, tasty, always a queue.", es:"Fiable, sabroso, siempre con cola."} },
+      { name:"Trattoria Mamma Mia", lat:36.7202973, lng:-4.4223687, place_id:"ChIJXVbQHpv3cg0R8yK-5Og8eJk",
+        note:{en:"Thin-crust pizza in the historic centre.", es:"Pizza de masa fina en pleno centro histórico."} },
+    ]},
+    { cat:{en:"Drinks", es:"Copas"}, ico:"🍸", items:[
+      { name:"Renard Cocktail Club", lat:36.721385, lng:-4.419564, place_id:"ChIJlYw0Z5X3cg0RRDU7K2vBB48", rec:true,
+        note:{en:"Menu reads like a novel, cocktails to match.", es:"La carta se lee como una novela, y los cócteles están a la altura."} },
+      { name:"La Terraza de Valeria", lat:36.7171428, lng:-4.4207718, place_id:"ChIJlaIwYpT3cg0RXxjfq3DhbuY",
+        note:{en:"Rooftop views over the marina.", es:"Vistas al puerto desde la azotea."} },
+    ]},
+    { cat:{en:"Ice Cream", es:"Helados"}, ico:"🍦", items:[
+      { name:"Casa Mira", lat:36.719465, lng:-4.421489, place_id:"ChIJjWZZupX3cg0RC4chqyYyMog", rec:true,
+        note:{en:"Since 1890 — try the turrón flavour.", es:"Desde 1890 — prueba el sabor a turrón."} },
+      { name:"Bico de Xeado", lat:36.722944, lng:-4.420525, place_id:"ChIJS-F-tb_3cg0RVAhfwLo869E",
+        note:{en:"Real ingredients, honestly excellent.", es:"Ingredientes reales, sencillamente excelente."} },
+    ]},
+  ],
+
+  // ================= DISCOVER MÁLAGA (sorted by distance) =================
+  // img left empty on purpose — no unauthorised photos used. Add your own
+  // photo paths (e.g. "media/cathedral.webp") when ready; cards degrade
+  // gracefully to an icon when no image is set.
+  explore: [
+    { name:"Málaga Cathedral", ico:"⛪", lat:36.7201678, lng:-4.4193106, place_id:"ChIJjanOEZX3cg0R-hlvsHnCw_w",
+      note:{en:"Baroque grandeur in the historic centre.", es:"Grandeza barroca en pleno centro histórico."} },
+    { name:"Picasso Museum", ico:"🎨", lat:36.7217363, lng:-4.4184291, place_id:"ChIJt3AqVJX3cg0RuStMhenHghw",
+      note:{en:"200+ works, in the city where he was born.", es:"Más de 200 obras, en la ciudad donde nació."} },
+    { name:"Roman Theatre", ico:"🏺", lat:36.7211729, lng:-4.416823, place_id:"ChIJM8NJoOr3cg0RKUe-SadD5oU",
+      note:{en:"Free to visit, right beneath the Alcazaba.", es:"Entrada libre, a los pies de la Alcazaba."} },
+    { name:"Alcazaba", ico:"🏰", lat:36.7211348, lng:-4.4158666, place_id:"ChIJxSK7oOr3cg0RZ7K4v2udaYQ",
+      note:{en:"Moorish fortress with the best views over the city.", es:"Fortaleza árabe con las mejores vistas de la ciudad."} },
+    { name:"Málaga Park", ico:"🌴", lat:36.7191148, lng:-4.4156899, place_id:"ChIJ2Uh4w5T3cg0RkHSZoZ-K09A",
+      note:{en:"Palm-lined boulevards, lovely shaded walk.", es:"Paseos entre palmeras, ideal con sombra."} },
+    { name:"Muelle Uno", ico:"⚓", lat:36.7173576, lng:-4.4130168, place_id:"ChIJo3DE5-j3cg0RQ8BidXnADiI",
+      note:{en:"Marina promenade with shops, bars and sea views.", es:"Paseo del puerto con tiendas, bares y vistas al mar."} },
+    { name:"Malagueta Beach", ico:"🏖️", lat:36.7192893, lng:-4.4024568, place_id:"ChIJTU5q9e73cg0RpwMiC3E5ysM",
+      note:{en:"The city's beach — sand, sea and chiringuitos.", es:"La playa de la ciudad: arena, mar y chiringuitos."} },
+  ],
+
+  beaches: [
+    { name:"Malagueta Beach", ico:"🏖️", lat:36.7192893, lng:-4.4024568, place_id:"ChIJTU5q9e73cg0RpwMiC3E5ysM",
+      note:{en:"The closest, easiest beach on foot.", es:"La playa urbana más cercana y accesible caminando."} },
+    { name:"La Caleta Beach", ico:"🏖️", lat:36.7223605, lng:-4.3943407, place_id:"ChIJ5QwdgeNZcg0Redrkp4UWIa0",
+      note:{en:"Quieter, along the seafront promenade — a longer walk or short bus ride.", es:"Más tranquila, siguiendo el paseo marítimo — paseo largo o autobús corto."} },
+    { name:"Pedregalejo", ico:"🏖️", lat:36.7210866, lng:-4.3717303, place_id:"ChIJwZZnqz9Ycg0R3gNMwDLLcEM",
+      note:{en:"Old fishing quarter, great for seafood — best reached by bus or taxi.", es:"Antiguo barrio marinero, ideal para comer pescado — mejor en autobús o taxi."} },
+  ],
+
+  shopping: [
+    { name:"Calle Marqués de Larios", ico:"🛍️", lat:36.7194687, lng:-4.421575, place_id:"ChIJX_OksZX3cg0RBuCwuIlH1PM",
+      note:{en:"Málaga's main shopping street, right in the centre.", es:"La calle comercial principal de Málaga, en pleno centro."} },
+    { name:"El Corte Inglés", ico:"🏬", lat:36.716992, lng:-4.4279328, place_id:"ChIJ6RqJ0JX3cg0RD7HUzZwEadk",
+      note:{en:"Department store, a little further out.", es:"Grandes almacenes, algo más alejado."} },
+    { name:"Muelle Uno", ico:"⚓", lat:36.7173576, lng:-4.4130168, place_id:"ChIJo3DE5-j3cg0RQ8BidXnADiI",
+      note:{en:"Boutiques by the marina.", es:"Boutiques junto al puerto deportivo."} },
+  ],
+
+  transport: {
+    airport: { name:"Málaga·Costa del Sol Airport", ico:"✈️", lat:36.676743, lng:-4.49387, place_id:"ChIJpTC6dhj6cg0Rmj7eRy-ttVc",
+      note:{en:"Taxi, bus or train — approximate times only, traffic varies.", es:"Taxi, autobús o tren — tiempos aproximados, varían con el tráfico."} },
+    train: { name:"María Zambrano Station", ico:"🚆", lat:36.711919, lng:-4.431962, place_id:"ChIJ8VDThZX3cg0RWLKm3wEwI-o",
+      note:{en:"Málaga's main train station.", es:"La estación de tren principal de Málaga."} },
+    taxi: { name:"Taxi", phone:"+34665827814",
+      note:{en:"Reliable local service, WhatsApp bookings welcome.", es:"Servicio local de confianza, acepta reservas por WhatsApp."} },
+    uber: { link:"https://m.uber.com/" },
+    cabify: { link:"https://cabify.com/" }
+  },
+
+  // ================= REVIEWS =================
+  // Leave as "PENDING" and the corresponding button stays hidden.
+  // Replace with the real URL to make it appear.
+  reviews: {
+    booking: "PENDING",
+    google: "PENDING",
+    rebook: "PENDING"
+  }
+};
+
+</script>
+<script>
+/* =====================================================================
+   THE HEREDIA GUIDE — shared engine
+   Reads the global CONFIG object (defined in each building's config.js)
+   and I18N (shared) and renders the whole page. Nothing here should
+   need editing per building — only config.js changes.
+===================================================================== */
+(function(){
+  "use strict";
+
+  function detectLang(){
+    const nav = (navigator.language || "en").toLowerCase();
+    const saved = sessionStorage.getItem('heredia_lang'); // clears itself when the tab closes — not tracking, just convenience during the visit
+    if (saved === 'es' || saved === 'en') return saved;
+    return nav.startsWith('es') ? 'es' : 'en';
+  }
+  let LANG = detectLang();
+
+  function t(key){ return (I18N[key] && I18N[key][LANG]) || key; }
+  function tt(pair){ return pair ? (pair[LANG] || pair.en || "") : ""; }
+
+  function haversineWalkMin(lat, lng){
+    if (lat == null || lng == null) return null;
+    const R=6371000, toRad=d=>d*Math.PI/180;
+    const b = CONFIG.building;
+    const dLat=toRad(lat-b.lat), dLng=toRad(lng-b.lng);
+    const a=Math.sin(dLat/2)**2+Math.cos(toRad(b.lat))*Math.cos(toRad(lat))*Math.sin(dLng/2)**2;
+    const dist=R*2*Math.atan2(Math.sqrt(a),Math.sqrt(1-a))*1.3; // street-grid correction
+    return Math.max(1, Math.round(dist/80)); // ~80m/min walking pace
+  }
+  function mapsUrl(p){
+    if (p.link) return p.link;
+    if (p.place_id) return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(p.name||'')}&query_place_id=${p.place_id}`;
+    return `https://www.google.com/maps/search/?api=1&query=${p.lat},${p.lng}`;
+  }
+  function esc(s){ return (s||"").replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+
+  // A single "go to maps" pill — always has a visible text label (not emoji-only), per accessibility requirement
+  function goBtn(p){
+    return `<a class="pill-btn go" target="_blank" rel="noopener noreferrer" href="${mapsUrl(p)}">🗺️ ${t('open_maps')}</a>`;
+  }
+
+  function poiCard(p, opts={}){
+    const walk = opts.showWalk!==false ? haversineWalkMin(p.lat, p.lng) : null;
+    const meta = [];
+    if (walk) meta.push(`🚶 ${walk} ${t('walk_min')}`);
+    if (p.metaExtra) meta.push(tt(p.metaExtra));
+    return `<div class="card poi-card reveal">
+      ${p.img ? `<img src="${esc(p.img)}" alt="${esc(p.imgAlt ? tt(p.imgAlt) : p.name)}" loading="lazy">` : ""}
+      <div class="info">
+        <h3>${p.ico?p.ico+' ':''}${esc(p.name)}</h3>
+        ${meta.length?`<div class="meta">${meta.join(' · ')}</div>`:''}
+        ${p.note ? `<p>${esc(tt(p.note))}</p>` : ''}
+      </div>
+      <div class="go">${goBtn(p)}</div>
+    </div>`;
+  }
+
+  function noraCard(p){
+    if (p.enabled === false) return "";
+    return `<div class="nora-card reveal">
+      <div class="kicker">${esc(tt(p.kicker))}</div>
+      <h3>${p.ico?p.ico+' ':''}${esc(p.name)}</h3>
+      ${p.quote ? `<p>“${esc(tt(p.quote))}”</p>` : ''}
+      <div class="meta">${(() => { const w=haversineWalkMin(p.lat,p.lng); return w ? `🚶 ${w} ${t('walk_min')}` : ''; })()}</div>
+      <div class="foot">${goBtn(p)}</div>
+    </div>`;
+  }
+
+  function favItem(p){
+    const walk = haversineWalkMin(p.lat, p.lng);
+    const rec = p.rec ? ` · ⭐ ${t('recommends')}` : '';
+    return `<div class="fav-item">
+      <div class="info">
+        <div class="name">${esc(p.name)}</div>
+        ${p.note ? `<div class="desc">${esc(tt(p.note))}</div>` : ''}
+        <div class="meta">${walk?`🚶 ${walk} ${t('walk_min')}`:''}${rec}</div>
+      </div>
+      <div class="go">${goBtn(p)}</div>
+    </div>`;
+  }
+
+  function favCategory(group, idx){
+    return `<details class="fav-cat reveal" ${idx===0?'open':''}>
+      <summary><span>${group.ico||''} ${esc(tt(group.cat))}</span><span class="plus">+</span></summary>
+      <div class="fav-items">${group.items.map(favItem).join("")}</div>
+    </details>`;
+  }
+
+  function renderList(id, items, renderFn){
+    const el = document.getElementById(id);
+    if (!el) return;
+    if (!items || !items.length){ el.innerHTML = `<p class="empty-note">—</p>`; return; }
+    el.innerHTML = items.map(renderFn).join("");
+  }
+
+  function applyStaticI18n(){
+    document.querySelectorAll('[data-i18n]').forEach(el=>{
+      el.innerHTML = t(el.getAttribute('data-i18n'));
+    });
+    document.documentElement.lang = LANG;
+  }
+
+  function renderDynamicText(){
+    // Building-specific bits that live in config but use the current language
+    document.querySelectorAll('[data-cfg]').forEach(el=>{
+      const path = el.getAttribute('data-cfg').split('.');
+      let v = CONFIG;
+      for (const k of path) v = v ? v[k] : undefined;
+      if (v == null) return;
+      el.innerHTML = (typeof v === 'object' && (v.en || v.es)) ? tt(v) : esc(String(v));
+    });
+  }
+
+  function wireHrefs(){
+    const b = CONFIG.contact;
+    const wa = `https://wa.me/${b.phoneDial.replace('+','')}?text=${encodeURIComponent(tt(b.whatsappMsg))}`;
+    document.querySelectorAll('[data-wa]').forEach(el=>{ el.href = wa; el.rel="noopener noreferrer"; el.target="_blank"; });
+    document.querySelectorAll('[data-tel]').forEach(el=>{ el.href = 'tel:'+b.phoneDial; });
+    document.querySelectorAll('[data-mail]').forEach(el=>{ el.href = 'mailto:'+b.email; });
+
+    // Review links: only show a button if a real URL has been configured
+    // (not the PENDING placeholder). If none of the three are ready yet,
+    // hide the whole "leave a review" prompt — asking for a review with
+    // no working button feels broken, so we wait until there's at least one.
+    let anyReviewVisible = false;
+    document.querySelectorAll('[data-review]').forEach(el=>{
+      const key = el.getAttribute('data-review');
+      const url = CONFIG.reviews && CONFIG.reviews[key];
+      if (url && !/pending/i.test(url)) {
+        el.href = url; el.rel="noopener noreferrer"; el.target="_blank";
+        el.style.display = '';
+        anyReviewVisible = true;
+      } else {
+        el.style.display = 'none';
+      }
+    });
+    const band = document.getElementById('reviewBand');
+    if (band) band.style.display = anyReviewVisible ? '' : 'none';
+  }
+
+  function wireMapLinks(){
+    document.querySelectorAll('[data-maps]').forEach(el=>{
+      const path = el.getAttribute('data-maps').split('.');
+      let v = CONFIG; for (const k of path) v = v ? v[k] : undefined;
+      if (v) { el.href = mapsUrl(v); el.rel="noopener noreferrer"; el.target="_blank"; }
+    });
+  }
+
+  function wireCopyAddress(){
+    const btn = document.getElementById('copyAddressBtn');
+    if (!btn) return;
+    btn.addEventListener('click', ()=>{
+      navigator.clipboard?.writeText(CONFIG.building.address).then(()=>{
+        const old = btn.innerHTML;
+        btn.innerHTML = t('copied');
+        setTimeout(()=>btn.innerHTML = old, 1600);
+      });
+    });
+  }
+
+  function renderAll(){
+    renderList('noraList', CONFIG.nora, noraCard);
+    const favEl = document.getElementById('favList');
+    if (favEl) favEl.innerHTML = CONFIG.favourites.map(favCategory).join("");
+    renderList('exploreList', CONFIG.explore, p=>poiCard(p));
+    renderList('beachList', CONFIG.beaches, p=>poiCard(p));
+    renderList('shoppingList', CONFIG.shopping, p=>poiCard(p));
+    renderList('transportList', [CONFIG.transport.airport, CONFIG.transport.train].filter(Boolean), p=>poiCard(p));
+
+    // Luggage card: replaced with a "coming soon" message unless explicitly
+    // enabled in config — avoids publishing an unverified or mismatched service.
+    const lug = document.getElementById('luggageCard');
+    if (lug && !(CONFIG.luggage && CONFIG.luggage.enabled)){
+      lug.innerHTML = `<h3>📦 ${t('luggage_title')}</h3><p>${t('luggage_pending')}</p>`;
+    }
+  }
+
+  function wireLangToggle(){
+    const buttons = document.querySelectorAll('.lang-toggle button');
+    buttons.forEach(b=>{
+      b.setAttribute('aria-pressed', b.dataset.lang === LANG ? 'true':'false');
+      b.addEventListener('click', ()=>{
+        LANG = b.dataset.lang;
+        sessionStorage.setItem('heredia_lang', LANG);
+        buttons.forEach(x=>x.setAttribute('aria-pressed', x.dataset.lang===LANG ? 'true':'false'));
+        applyStaticI18n(); renderDynamicText(); wireExtras(); renderAll(); wireReveal();
+      });
+    });
+  }
+
+  // Tab-style navigation: exactly one panel visible at a time. Any element
+  // with data-panel="xxx" (the dock links, plus any in-page shortcut like
+  // the hero's "Useful information" button) switches to that panel.
+  function showPanel(id, {scroll=true} = {}){
+    document.querySelectorAll('.panel').forEach(p => p.classList.toggle('active', p.id === id));
+    document.querySelectorAll('#dock a').forEach(a => {
+      if (a.dataset.panel === id) a.setAttribute('aria-current','true');
+      else a.removeAttribute('aria-current');
+    });
+    if (scroll) window.scrollTo({ top: 0, behavior: 'auto' });
+    history.replaceState(null, '', '#' + id);
+  }
+
+  function wireTabs(){
+    document.querySelectorAll('[data-panel]').forEach(el=>{
+      el.addEventListener('click', (e)=>{
+        e.preventDefault();
+        showPanel(el.dataset.panel);
+      });
+    });
+    // Deep-link support: opening the guide at #ayuda (etc.) lands straight there —
+    // handy if a QR code is ever pointed at a specific section.
+    const initial = (location.hash || '').replace('#','');
+    if (initial && document.getElementById(initial)) showPanel(initial, {scroll:false});
+  }
+
+  function wireReveal(){
+    const io = new IntersectionObserver((es)=>es.forEach(e=>{
+      if (e.isIntersecting){ e.target.classList.add('on'); io.unobserve(e.target); }
+    }), {threshold:.08});
+    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  }
+
+  // Small building-agnostic bits that read straight from config: welcome
+  // message, joined address lines, and the a-la-carte transport buttons.
+  // Present in every building's index.html by element id; simply skipped
+  // if a given id isn't on the page.
+  function wireExtras(){
+    const welcome = document.getElementById('welcomeText');
+    if (welcome && CONFIG.welcome) welcome.textContent = tt(CONFIG.welcome);
+
+    const addr = document.getElementById('addressLines');
+    if (addr) addr.textContent = CONFIG.building.addressLines.join(" · ");
+
+    const guardia = document.getElementById('guardiaBtn');
+    if (guardia && CONFIG.pharmacy && CONFIG.pharmacy.guardiaLink) guardia.href = CONFIG.pharmacy.guardiaLink;
+
+    const taxi = document.getElementById('taxiBtn');
+    if (taxi && CONFIG.transport && CONFIG.transport.taxi) taxi.href = 'tel:' + CONFIG.transport.taxi.phone;
+
+    const uber = document.getElementById('uberBtn');
+    if (uber && CONFIG.transport && CONFIG.transport.uber) uber.href = CONFIG.transport.uber.link;
+
+    const cabify = document.getElementById('cabifyBtn');
+    if (cabify && CONFIG.transport && CONFIG.transport.cabify) cabify.href = CONFIG.transport.cabify.link;
+
+    const luggageTel = document.getElementById('luggageTelBtn');
+    if (luggageTel){
+      if (CONFIG.luggage && CONFIG.luggage.enabled && CONFIG.luggage.phone) luggageTel.href = 'tel:' + CONFIG.luggage.phone;
+      else luggageTel.style.display = 'none';
+    }
+  }
+
+  function init(){
+    applyStaticI18n();
+    renderDynamicText();
+    wireHrefs();
+    wireMapLinks();
+    wireCopyAddress();
+    wireExtras();
+    renderAll();
+    wireLangToggle();
+    wireTabs();
+    setTimeout(wireReveal, 30);
+  }
+
+  document.addEventListener('DOMContentLoaded', init);
+})();
+
+</script>
+</body>
+</html>
