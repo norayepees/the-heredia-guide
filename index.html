@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>The Heredia Guide · Heredia Suites Catedral</title>
+<meta name="description" content="Everything you need for a perfect stay in Málaga. Your guide from Heredia Suites Catedral.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23fbf3e3'/%3E%3Ctext x='32' y='45' text-anchor='middle' font-family='Georgia,serif' font-size='38' font-weight='600' fill='%23a97c3e'%3EH%3C/text%3E%3C/svg%3E">
+<meta property="og:title" content="The Heredia Guide · Heredia Suites Catedral">
+<meta property="og:description" content="Everything you need for a perfect stay in Málaga.">
+<meta property="og:type" content="website">
+<meta name="robots" content="noindex"> <!-- guest-only guide, not meant for search results -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../shared/styles.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="top">
+  <div class="top-in">
+    <div class="brand-block">
+      <div class="brand">The Heredia <em>Guide</em></div>
+      <div class="brand-sub" data-i18n="brand_sub">Guest Guide</div>
+    </div>
+    <div class="lang-toggle" role="group" aria-label="Language / Idioma">
+      <button data-lang="en" aria-pressed="true">EN</button>
+      <button data-lang="es" aria-pressed="false">ES</button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<div class="hero wrap">
+  <h1 data-cfg="building.name">Heredia Suites Catedral</h1>
+  <p class="tag" id="welcomeText"></p>
+  <div class="hero-actions">
+    <a class="btn btn-gold" data-wa href="#"><span>💬</span><span data-i18n="whatsapp_us">WhatsApp us</span></a>
+    <a class="btn btn-line" href="#util" data-panel="util" data-i18n="see_useful">Useful information</a>
+  </div>
+</div>
+
+<!-- ============ ÚTIL ============ -->
+<section class="panel active" id="util" data-panel="util">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow" data-i18n="e_util">Everything practical, in one place</div>
+      <h2 data-i18n="h_util">Useful Information</h2>
+      <div class="rule"></div>
+    </div>
+
+    <div class="card">
+      <h3>📍 <span data-i18n="address_title">Address</span></h3>
+      <p data-cfg="building.name">Heredia Suites Catedral</p>
+      <p id="addressLines"></p>
+      <div class="foot">
+        <a class="pill-btn" data-maps="building" target="_blank" rel="noopener noreferrer">🗺️ <span data-i18n="open_maps">Maps</span></a>
+        <button class="pill-btn" id="copyAddressBtn">📋 <span data-i18n="copy_address">Copy address</span></button>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="row"><h3 style="font-size:16px" data-i18n="checkin_title">Check-in</h3>
+        <span class="val"><span data-i18n="checkin_from">From</span> <span data-cfg="checkin">15:00</span></span></div>
+      <div class="row" style="margin-top:10px"><h3 style="font-size:16px" data-i18n="checkout_title">Check-out</h3>
+        <span class="val"><span data-i18n="checkout_before">Before</span> <span data-cfg="checkout">12:00</span></span></div>
+      <div class="checklist" style="margin-top:14px">
+        <div class="it" data-i18n="co_1">Switch off the air conditioning</div>
+        <div class="it" data-i18n="co_2">Turn off all lights</div>
+        <div class="it" data-i18n="co_3">Close every door and window</div>
+        <div class="it" data-i18n="co_4">Double-check you have all your belongings</div>
+        <div class="it" data-i18n="co_5">Leave the keys where indicated</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>❄️ <span data-i18n="ac_title">Air Conditioning</span></h3>
+      <div class="checklist">
+        <div class="it" data-i18n="ac_1">Keep doors and windows closed while it's running.</div>
+        <div class="it" data-i18n="ac_2">Please switch it off when you go out.</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>🗑️ <span data-i18n="trash_title">Waste Disposal</span></h3>
+      <p><span data-i18n="trash_text">Bins are located on</span> <b data-cfg="trash.street"></b>, <span data-cfg="trash.near"></span>.</p>
+      <div class="row"><span data-i18n="trash_hours">Recommended time</span><span class="val" data-cfg="trash.hours"></span></div>
+      <div class="foot"><a class="pill-btn" data-maps="trash" target="_blank" rel="noopener noreferrer">🗺️ <span data-i18n="open_maps">Maps</span></a></div>
+    </div>
+
+    <div class="card">
+      <h3>🅿️ <span data-i18n="parking_title">Parking</span></h3>
+      <p data-cfg="parking.name"></p>
+      <p data-cfg="parking.note"></p>
+      <div class="foot"><a class="pill-btn" data-maps="parking" target="_blank" rel="noopener noreferrer">🗺️ <span data-i18n="open_maps">Maps</span></a></div>
+    </div>
+
+    <div class="card">
+      <h3>🛒 <span data-i18n="market_title">Supermarket</span></h3>
+      <p data-cfg="market.name"></p>
+      <p data-cfg="market.note"></p>
+      <div class="foot"><a class="pill-btn" data-maps="market" target="_blank" rel="noopener noreferrer">🗺️ <span data-i18n="open_maps">Maps</span></a></div>
+    </div>
+
+    <div class="card">
+      <h3>💊 <span data-i18n="pharmacy_title">Pharmacy</span></h3>
+      <p data-cfg="pharmacy.name"></p>
+      <p data-cfg="pharmacy.note"></p>
+      <div class="foot">
+        <a class="pill-btn" data-maps="pharmacy" target="_blank" rel="noopener noreferrer">🗺️ <span data-i18n="open_maps">Maps</span></a>
+        <a class="pill-btn" id="guardiaBtn" target="_blank" rel="noopener noreferrer">💊 <span data-i18n="pharmacy_guardia">On-duty pharmacy</span></a>
+      </div>
+    </div>
+
+    <div class="card" id="luggageCard">
+      <h3>📦 <span data-i18n="luggage_title">Luggage Storage</span></h3>
+      <p data-cfg="luggage.name"></p>
+      <div class="row"><span data-i18n="contact_hours">Hours</span><span class="val" data-cfg="luggage.hours"></span></div>
+      <p style="margin-top:8px" data-cfg="luggage.note"></p>
+      <div class="foot">
+        <a class="pill-btn" data-maps="luggage" target="_blank" rel="noopener noreferrer">🗺️ <span data-i18n="open_maps">Maps</span></a>
+        <a class="pill-btn" id="luggageTelBtn" href="#">📞 <span data-i18n="call">Call</span></a>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>💬 <span data-i18n="contact_title">Contact</span></h3>
+      <p>Heredia Suites</p>
+      <div class="row"><span data-i18n="contact_hours">Attention hours</span><span class="val" data-cfg="contact.hours"></span></div>
+      <p style="margin-top:10px" data-i18n="contact_afterhours">If you need help outside these hours for an urgent issue with the apartment, message us anyway — we'll do our best to help as soon as possible.</p>
+      <div class="foot">
+        <a class="pill-btn solid" data-wa href="#">💬 WhatsApp</a>
+        <a class="pill-btn" data-tel href="#">📞 <span data-i18n="call">Call</span></a>
+        <a class="pill-btn" data-mail href="#">✉️ <span data-i18n="email">Email</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RECOMENDACIONES (Nora's picks + Our Favourites) ============ -->
+<section class="panel" id="reco" data-panel="reco">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow" data-i18n="e_nora">My favourite spots to enjoy Málaga like a local</div>
+      <h2 data-i18n="h_nora">Recommended by Nora</h2>
+      <div class="rule"></div>
+    </div>
+    <div id="noraList"></div>
+
+    <div class="sec-head" style="margin-top:32px">
+      <div class="eyebrow" data-i18n="e_comer">A curated selection, not a directory</div>
+      <h2 data-i18n="h_comer">Our Favourites</h2>
+      <div class="rule"></div>
+    </div>
+    <div id="favList"></div>
+  </div>
+</section>
+
+<!-- ============ MÁLAGA (explore + beaches + shopping + transport) ============ -->
+<section class="panel" id="malaga" data-panel="malaga">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow" data-i18n="e_malaga">Sorted by distance from your door</div>
+      <h2 data-i18n="h_malaga">Explore Málaga</h2>
+      <div class="rule"></div>
+    </div>
+    <div id="exploreList"></div>
+
+    <div class="sec-head" style="margin-top:32px">
+      <h2 data-i18n="h_beaches" style="font-size:21px">Beaches</h2>
+    </div>
+    <div id="beachList"></div>
+
+    <div class="sec-head" style="margin-top:32px">
+      <h2 data-i18n="h_shopping" style="font-size:21px">Shopping</h2>
+    </div>
+    <div id="shoppingList"></div>
+
+    <div class="sec-head" style="margin-top:32px">
+      <h2 data-i18n="h_transport" style="font-size:21px">Getting Around</h2>
+    </div>
+    <div id="transportList"></div>
+    <div class="card" style="margin-top:12px">
+      <h3>🚕 <span data-i18n="t_taxi">Taxi</span></h3>
+      <p data-cfg="transport.taxi.note"></p>
+      <div class="foot"><a class="pill-btn solid" id="taxiBtn"><span data-i18n="call">Call</span></a></div>
+    </div>
+    <div class="card" style="margin-top:12px">
+      <h3>🚗 Uber / Cabify</h3>
+      <div class="foot">
+        <a class="pill-btn" id="uberBtn" target="_blank" rel="noopener noreferrer">Uber</a>
+        <a class="pill-btn" id="cabifyBtn" target="_blank" rel="noopener noreferrer">Cabify</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ AYUDA (help + emergency + review) ============ -->
+<section class="panel" id="ayuda" data-panel="ayuda">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow" data-i18n="e_help">We're here</div>
+      <h2 data-i18n="h_help">Need Help?</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="card">
+      <h3>💬 Heredia Suites</h3>
+      <p data-i18n="help_text">Anything at all — just message us.</p>
+      <div class="foot">
+        <a class="pill-btn solid" data-wa href="#">💬 WhatsApp</a>
+        <a class="pill-btn" data-tel href="#">📞 <span data-i18n="call">Call</span></a>
+        <a class="pill-btn" data-mail href="#">✉️ <span data-i18n="email">Email</span></a>
+      </div>
+    </div>
+
+    <div class="emg-band" style="margin-top:16px">
+      <div class="eyebrow" data-i18n="e_emg">Just in case</div>
+      <h2 data-i18n="h_emg">Emergency</h2>
+      <div class="emg-grid">
+        <div class="emg-item"><div class="k" data-i18n="emg_all">Emergencies</div><div class="v"><a href="tel:112">112</a></div></div>
+        <div class="emg-item"><div class="k" data-i18n="emg_national">National Police</div><div class="v"><a href="tel:091">091</a></div></div>
+        <div class="emg-item"><div class="k" data-i18n="emg_local">Local Police</div><div class="v"><a href="tel:092">092</a></div></div>
+        <div class="emg-item"><div class="k" data-i18n="emg_fire">Fire Brigade</div><div class="v"><a href="tel:080">080</a></div></div>
+      </div>
+      <p class="note"><b data-i18n="emg_hospital">Nearest hospital</b>: Hospital Regional Universitario de Málaga.</p>
+      <p class="note" data-i18n="emg_note">For any urgent issue with the apartment, please contact Heredia Suites as well.</p>
+    </div>
+
+    <div class="review-band" id="reviewBand">
+      <div class="stars">★★★★★</div>
+      <h2 data-i18n="review_title">We hope you enjoyed your stay</h2>
+      <p data-i18n="review_text">If everything went well, it would mean a lot if you took a minute to leave us a review.</p>
+      <div class="review-actions">
+        <a class="btn btn-gold" data-review="booking" target="_blank" href="#" data-i18n="review_booking">Review on Booking</a>
+        <a class="btn btn-line" data-review="google" target="_blank" href="#" data-i18n="review_google">Review on Google</a>
+        <a class="btn btn-line" data-review="rebook" target="_blank" href="#" data-i18n="review_rebook">Book with us again</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="pg wrap">
+  Heredia Suites Catedral · Málaga · <span data-i18n="footer_made">made with care for our guests</span>
+</footer>
+
+<div class="dock-wrap">
+  <nav class="dock" id="dock" aria-label="Section navigation">
+    <a href="#util" data-panel="util" aria-current="true"><span class="di">🏠</span><span data-i18n="nav_util">Useful</span></a>
+    <a href="#reco" data-panel="reco"><span class="di">⭐</span><span data-i18n="nav_reco">Recommendations</span></a>
+    <a href="#malaga" data-panel="malaga"><span class="di">🏛️</span><span data-i18n="nav_malaga">Málaga</span></a>
+    <a href="#ayuda" data-panel="ayuda"><span class="di">☎️</span><span data-i18n="nav_ayuda">Help</span></a>
+  </nav>
+</div>
+
+<script src="../shared/i18n.js"></script>
+<script src="config.js"></script>
+<script src="../shared/engine.js"></script>
+</body>
+</html>
